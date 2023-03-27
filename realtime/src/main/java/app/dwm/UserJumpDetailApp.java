@@ -23,7 +23,8 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
-public class UserJumpDetailApp {
+public class
+UserJumpDetailApp {
     public static void main(String[] args) throws Exception {
         // 1.获取执行环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();

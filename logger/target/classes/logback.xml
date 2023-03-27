@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOG_HOME" value="/opt/module/rtdw-flink/rt_applog/logs" />
+    <!--日志打印到控制台-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--日志到滚动文件-->
+    <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/app.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 将某一个包下日志单独打印日志 追踪info类型的日志 落盘并且打印到控制台-->
+    <logger name="com.gzhu.logger.controller.LoggerController" level="INFO" additivity="false">
+        <appender-ref ref="rollingFile" />
+        <appender-ref ref="console" />
+    </logger>
+
+    <root level="error" additivity="false">
+        <appender-ref ref="console" />
+    </root>
+
+</configuration>
