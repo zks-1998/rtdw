@@ -14,6 +14,7 @@ import org.apache.kafka.connect.source.SourceRecord;
 import java.util.List;
 
 public class CusDes implements DebeziumDeserializationSchema<String> {
+    // 仅测试git是否可用
     @Override
     public void deserialize(SourceRecord sourceRecord, Collector collector) throws Exception {
         // 创建JSON对象
